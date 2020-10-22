@@ -1,7 +1,6 @@
 package com.example.calculator_project;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
@@ -27,6 +26,16 @@ class CalculatorTest {
     @Test
     void divide() {
         Calculator calculate = new Calculator();
-        assertEquals(100, calculate.divide(5, 5));
+        assertEquals(1, calculate.divide(5, 5));
     }
+
+//    @Test
+//    void divide() {
+//        Calculator calculate = new Calculator();
+//        assertEquals(100, calculate.divide(5, 5));
+//    }
+
+
+
+
 }

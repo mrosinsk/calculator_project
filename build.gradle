@@ -30,7 +30,23 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+
+
 }
+
+//tworze swój własny skrypt
+task generateBuildInfo(group: 'Build', description: 'Generate some info about build'){
+	File buildInfo = file "${buildDir}/build.info"
+	doLast {
+		buildInfo.text = 'Build by Chrupek!'
+	}
+	outputs.file buildInfo
+
+}
+processResources{
+	from generateBuildInfo
+}
+/////////////////////////////
 
 dependencyManagement {
 	imports {
@@ -41,3 +57,10 @@ dependencyManagement {
 test {
 	useJUnitPlatform()
 }
+
+wrapper {
+	gradleVersion = '4.5.1'
+	distributionType = Wrapper.DistributionType.ALL
+}
+
+
