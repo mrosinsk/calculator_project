@@ -2,21 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage("Hello") {
             steps {
-                echo 'Hello World'
+                echo "Hello World"
             }
 		}
 
-        stage('Build') {
+        stage("Build") {
              steps {
-                sh 'compileJava'
+                sh "compileJava"
              }
         }
 
-        stage('Test') {
+        stage("Test") {
               steps {
-                 sh 'test'
+                 sh "test"
               }
         }
 
