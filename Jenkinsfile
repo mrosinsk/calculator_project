@@ -10,13 +10,13 @@ pipeline {
 
         stage("Build") {
              steps {
-                sh "compileJava"
+                sh compileJava
              }
         }
 
         stage("Test") {
               steps {
-                 sh "test"
+                 sh test
               }
         }
 
