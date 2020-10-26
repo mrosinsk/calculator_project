@@ -15,7 +15,7 @@ pipeline {
                       steps {
                           echo "Currently working on a branch: ${GIT_BRANCH} !!!"
                       }
-                }
+        }
 
         stage("Hello") {
                steps {
@@ -23,6 +23,18 @@ pipeline {
                }
         }
 
+        stage('Docker Build'){
+            steps {
+                pwsh(script: 'docker images -a')
+                pwsh(script: """
+                cd calculator_project/
+                docker images -a
+                docker build -t jenkins-pipeline
+                docker images -a
+                cd ..
+                """)
+            }
+        }
 
 	}
 }
