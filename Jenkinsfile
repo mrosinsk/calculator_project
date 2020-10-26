@@ -13,7 +13,7 @@ pipeline {
 
         stage('Verify Branch in another way') {
                       steps {
-                          echo "${BRANCH_NAME}"
+                          echo "${GIT_BRANCH}"
                       }
                 }
 
