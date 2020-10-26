@@ -3,17 +3,19 @@ pipeline {
 
 
     stages {
-        stage("Hello") {
-            steps {
-                echo "Hello World"
-            }
-		}
+
 
         stage('Verify Branch') {
-                    steps {
-                        echo '$GIT_BRANCH'
-                    }
-                }
+              steps {
+                  sh 'echo $GIT_BRANCH'
+              }
+        }
+
+        stage("Hello") {
+               steps {
+                    echo "Hello World"
+               }
+        }
 
 
 	}
