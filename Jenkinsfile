@@ -12,9 +12,9 @@ pipeline {
         }
 
         stage('Verify Branch in another way') {
-                      steps {
-                          echo "Currently working on a branch: ${GIT_BRANCH} !!!"
-                      }
+               steps {
+                   echo "Currently working on a branch: ${GIT_BRANCH} !!!"
+               }
         }
 
         stage("Hello") {
@@ -25,7 +25,7 @@ pipeline {
 
         stage('Docker Build'){
             steps {
-                pwsh(script: 'docker images -a')
+                pwsh(script: "docker images -a")
                 pwsh(script: """
                 cd calculator_project/
                 docker images -a
