@@ -11,6 +11,12 @@ pipeline {
               }
         }
 
+        stage('Verify Branch in another way') {
+                      steps {
+                          echo "${BRANCH_NAME}"
+                      }
+                }
+
         stage("Hello") {
                steps {
                     echo "Hello World"
