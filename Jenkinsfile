@@ -1,6 +1,7 @@
 pipeline {
     agent any
 
+
     stages {
         stage("Hello") {
             steps {
@@ -8,17 +9,11 @@ pipeline {
             }
 		}
 
-        stage("Build") {
-             steps {
-                sh compileJava
-             }
-        }
-
-        stage("Test") {
-              steps {
-                 sh test
-              }
-        }
+        stage('Verify Branch') {
+                    steps {
+                        echo '$GIT_BRANCH'
+                    }
+                }
 
 
 	}
