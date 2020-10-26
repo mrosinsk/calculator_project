@@ -13,7 +13,7 @@ pipeline {
 
         stage('Verify Branch in another way') {
                       steps {
-                          echo "${GIT_BRANCH}"
+                          echo "Currently working on a branch: ${GIT_BRANCH} !!!"
                       }
                 }
 
