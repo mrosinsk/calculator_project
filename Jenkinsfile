@@ -7,6 +7,7 @@ pipeline {
 
     parameters {
         choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
+        booleanParam(name: 'executeTests', defaultValue: true, description: '')
     }
 
 	//CODE_CHANGES = getGitChanges()
@@ -28,20 +29,20 @@ pipeline {
 
           steps {
 			echo 'building the app...'
-			echo "version: ${NEW_VERSION}"
+			//echo "version: ${NEW_VERSION}"
           }
         }
 
 		stage('test') {
 			when{
 				expression {
-					BRANCH_NAME == "test"
+					BRANCH_NAME == "test" && params.executeTests
 				}
 			}
 
           steps {
 			echo "testing the app..."
-			echo "testing version ${params.VERSION}"
+
           }
         }
 
@@ -50,6 +51,7 @@ pipeline {
 			echo 'deploying the app...'
 			//echo "deploying with ${SERVER_CREDENTIALS}"
 			//sh "${SERVER_CREDENTIALS}"
+			echo "deploying version ${params.VERSION}"
 
           }
         }
