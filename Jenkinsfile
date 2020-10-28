@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        NEW_VERSION = "1.3.0"
-        SERVER_CREDENTIALS = credentials('server-credentials')
+        //NEW_VERSION = "1.3.0"
+        //SERVER_CREDENTIALS = credentials('server-credentials')
     }
 
     parameters {
@@ -48,8 +48,8 @@ pipeline {
 		stage('deploy') {
           steps {
 			echo 'deploying the app...'
-			echo "deploying with ${SERVER_CREDENTIALS}"
-			sh "${SERVER_CREDENTIALS}"
+			//echo "deploying with ${SERVER_CREDENTIALS}"
+			//sh "${SERVER_CREDENTIALS}"
 
           }
         }
