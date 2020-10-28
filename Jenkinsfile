@@ -17,7 +17,7 @@ pipeline {
 		stage('build') {
 			when{
 				expression {
-					BRANCH_NAME == "test" && BRANCH_NAME == "dev"
+					BRANCH_NAME == "test" || BRANCH_NAME == "dev"
 				}
 			}
 
@@ -35,13 +35,13 @@ pipeline {
 			}
 
           steps {
-			echo "testing the app...H"
+			echo "testing the app..."
           }
         }
 
 		stage('deploy') {
           steps {
-			echo "deploying the app...H"
+			echo "deploying the app..."
           }
         }
 
