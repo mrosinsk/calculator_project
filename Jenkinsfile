@@ -4,37 +4,13 @@ pipeline {
 
     stages {
 
-
-        stage('Verify Branch') {
+        stage('run backend') {
               steps {
-                  echo "$GIT_BRANCH"
+                  echo 'executing gradle...'
+                  withGradle(){
+                    sh './gradlew -v'
+                  }
               }
         }
-
-        stage('Verify Branch in another way') {
-               steps {
-                   echo "Currently working on a branch: ${GIT_BRANCH} !!!"
-               }
-        }
-
-        stage("Hello") {
-               steps {
-                    echo "Hello World!"
-               }
-        }
-
-        stage('Docker Build'){
-            steps {
-                pwsh(script: "docker images -a")
-                pwsh(script: """
-                cd calculator_project/
-                docker images -a
-                docker build -t jenkins-pipeline
-                docker images -a
-                cd ..
-                """)
-            }
-        }
-
-	}
+    }
 }
